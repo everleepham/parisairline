@@ -15,4 +15,8 @@ import lombok.ToString;
 public class Employee {
     @Id
     private String employeeNum;
+
+    public void setId(Long id) {
+        this.employeeNum = String.valueOf(id);
+    }
 }

@@ -25,5 +25,9 @@ public class Flight {
     private String arrivalAirport;
     private LocalDateTime arrivalDate;
     private Double price;
+
+    public void setId(Long id) {
+        this.flightId = id;
+    }
 }
 

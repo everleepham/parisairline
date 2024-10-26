@@ -17,7 +17,7 @@ import lombok.ToString;
 public class Plane {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String planeId;
+    private Long planeId;
     private String planeBrand;
     private String planeModel;
     private String planeManufacturer;

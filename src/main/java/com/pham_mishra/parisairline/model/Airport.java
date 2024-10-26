@@ -21,4 +21,8 @@ public class Airport {
     private String airportName;
     private String airportCountry;
     private String airportCity;
+
+    public void setId(Long id) {
+        this.airportId = id;
+    }
 }
