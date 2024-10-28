@@ -30,12 +30,12 @@ public class BookService {
         return bookRepository.save(booking);
     }
 
-    public Book updateBooking(Long id, Book updatedBooking) {
+    public Optional<Book> updateBooking(Long id, Book updatedBooking) {
         if (bookRepository.existsById(id)) {
             updatedBooking.setId(id);
-            return bookRepository.save(updatedBooking);
+            return Optional.of(bookRepository.save(updatedBooking));
         }
-        return null;
+        return Optional.empty();
     }
 
     public void deleteBooking(Long id) {

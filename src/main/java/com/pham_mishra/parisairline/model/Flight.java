@@ -20,14 +20,19 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long flightId;
-    private String departAirport;
-    private LocalDateTime departDate;
+
+    private String departureCity;
+    private String arrivalCity;
+
+    private String departureAirport;
+    private LocalDateTime departureDate;
+
     private String arrivalAirport;
     private LocalDateTime arrivalDate;
+
     private Double price;
 
     public void setId(Long id) {
         this.flightId = id;
     }
 }
-

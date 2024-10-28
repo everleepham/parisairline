@@ -32,9 +32,15 @@ public class PlaneService {
 
     public Plane updatePlane(Long id, Plane updatedPlane) {
         return planeRepository.findById(id).map(plane -> {
-            plane.setPlaneBrand(updatedPlane.getPlaneBrand());
-            plane.setPlaneModel(updatedPlane.getPlaneModel());
-            plane.setPlaneManufacturer(updatedPlane.getPlaneManufacturer());
+            if (updatedPlane.getPlaneBrand() != null) {
+                plane.setPlaneBrand(updatedPlane.getPlaneBrand());
+            }
+            if (updatedPlane.getPlaneModel() != null) {
+                plane.setPlaneModel(updatedPlane.getPlaneModel());
+            }
+            if (updatedPlane.getPlaneManufacturer() != null) {
+                plane.setPlaneManufacturer(updatedPlane.getPlaneManufacturer());
+            }
             return planeRepository.save(plane);
         }).orElse(null);
     }

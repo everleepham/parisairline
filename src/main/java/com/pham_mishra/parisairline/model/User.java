@@ -1,9 +1,6 @@
 package com.pham_mishra.parisairline.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +13,7 @@ import java.time.LocalDate;
 @ToString
 @EqualsAndHashCode
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +24,4 @@ public class User {
     private String email;
     private String phone;
     private LocalDate birthdate;
-
-    // Getters and Setters
 }

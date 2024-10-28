@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,14 +25,13 @@ public class PlaneController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Plane>> getPlaneById(@PathVariable Long id) {
-        Optional<Plane> plane = planeService.getPlaneById(id);
-        if (plane.isPresent()) {
-            return new ResponseEntity<>(plane, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Plane> getPlaneById(@PathVariable Long id) {
+        Plane plane = planeService.getPlaneById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Plane not found"));
+        return new ResponseEntity<>(plane, HttpStatus.OK);
     }
+
+
 
     @PostMapping
     public ResponseEntity<Plane> createPlane(@RequestBody Plane plane) {

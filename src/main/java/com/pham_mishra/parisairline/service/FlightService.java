@@ -5,6 +5,7 @@ import com.pham_mishra.parisairline.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,5 +41,9 @@ public class FlightService {
 
     public void deleteFlight(Long id) {
         flightRepository.deleteById(id);
+    }
+
+    public List<Flight> searchFlights(String departureCity, String arrivalCity, LocalDate departureDate) {
+        return flightRepository.findByDepartureCityAndArrivalCityAndDepartureDate(departureCity, arrivalCity, departureDate);
     }
 }
