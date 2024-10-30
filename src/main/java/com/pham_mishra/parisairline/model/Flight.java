@@ -1,5 +1,6 @@
 package com.pham_mishra.parisairline.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.GeneratedValue;
@@ -20,16 +21,12 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long flightId;
-
     private String departureCity;
     private String arrivalCity;
-
     private String departureAirport;
-    private LocalDateTime departureDate;
-
+    private LocalDate departureDate;
     private String arrivalAirport;
-    private LocalDateTime arrivalDate;
-
+    private LocalDate arrivalDate;
     private Double price;
 
     public void setId(Long id) {
